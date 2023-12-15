@@ -1,5 +1,3 @@
-   Here is a more detailed README for the Iris classifier code:
-
 # Iris Flower Classification
 
 Implementation of an artificial neural network model to categorize Iris flowers based on sepal/petal measurements.  
