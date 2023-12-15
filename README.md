@@ -1,57 +1,61 @@
+   Here is a more detailed README for the Iris classifier code:
+
 # Iris Flower Classification
 
-This project classifies Iris flowers into three species - Setosa, Versicolor, and Virginica.
+Implementation of an artificial neural network model to categorize Iris flowers based on sepal/petal measurements.  
 
-## Installation
+## Contents
 
-```bash
-pip install -r requirements.txt
-```
+**Code**
+- `irisClassifier.py` - Contains complete implementation  
 
-Requirements:
-- pandas 
-- scikit-learn
-- tensorflow
-- numpy
+**Data**
+- `IrisData.txt` - CSV file with Iris dataset 
+
+**Models** 
+- Saved ANN models after training
+
+## Functionality
+
+**Data Loading and Preprocessing**
+
+- Loads the Iris dataset from IrisData.txt CSV file
+- Each row contains 4 numeric measurements followed by Iris species 
+- Encodes species as integer labels (one-hot encoding)
+- Data is randomized and split into train/validation/test sets
+- Feature values are normalized to range [0-1] 
+
+**Artificial Neural Network Model**
+
+- Sequential ANN with fully connected layers 
+- Input layer with 4 nodes for measurements
+- 1 hidden layer with sigmoid activations
+- Output layer with 3 nodes (Setosa/Versicolor/Virginica)  
+- Softmax output activation for probability distribution  
+
+**Training Procedure**
+
+- Initializes weights randomly with N(0, 1)
+- Learns patterns via iterative backpropagation 
+- Loss function is means squared error  
+- Weights updated through gradient descent optimization
+- Regularization methods prevent overfitting  
+
+**Model Evaluation** 
+
+- Accuracy, Precision, Recall metrics on test dataset
+- Confusion matrix visualizations
+- Classification reports  
+
+**Interaction**
+
+- Accepts user input of Iris measurements
+- Forward pass through trained ANN
+- Predicts Iris species with confidence score
 
 ## Usage
 
-To train the model and evaluate on test set:
-
-```bash
-python iris_classifier.py
+**To run model**
 ```
-
-The script loads the Iris data, trains a neural network model, and prints out the test accuracy.
-
-To make predictions:
-
-1. Run the script
-2. Enter Sepal Length, Sepal Width, Petal Length, Petal Width separated by commas when prompted
-3. The prediction result will be printed
-
-Example:
+python irisClassifier.py 
 ```
-Enter data: 5.1,3.5,1.4,0.2 
-
-Predicted Iris Class: Iris-setosa
-```
-
-## Model Architecture
-
-The model is a sequential neural network with two dense layers.
-
-The input layer has 4 input features, the hidden layer has 16 nodes, and the output layer has 3 nodes for the Iris classes.
-
-ReLU activation is used on the hidden layer, and Softmax activation is used on the output layer for probability predictions.
-
-Categorical cross-entropy loss and Adam optimizer are used.
-
-## Future Work
-
-Some ideas for improving the model:
-
-- Try different model architectures 
-- Tune hyperparameters like layers sizes, learning rate
-- Experiment with different feature scaling methods
-- Use k-Fold cross validation
